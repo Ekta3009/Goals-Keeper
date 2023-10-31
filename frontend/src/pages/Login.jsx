@@ -6,7 +6,7 @@ import { login, reset } from "../features/auth/authSlice";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
 
-const Login = () => {
+function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -14,12 +14,12 @@ const Login = () => {
 
   const { email, password } = formData;
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const { user, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.auth
   );
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isError) {
@@ -59,7 +59,7 @@ const Login = () => {
     <>
       <section className="heading">
         <h1>
-          <FaSignInAlt /> Sign In
+          <FaSignInAlt /> Login
         </h1>
         <p>Login and start setting goals</p>
       </section>
@@ -97,6 +97,6 @@ const Login = () => {
       </section>
     </>
   );
-};
+}
 
 export default Login;

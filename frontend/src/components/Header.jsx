@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
 
-const Header = () => {
+function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -51,6 +51,6 @@ const Header = () => {
       </ul>
     </header>
   );
-};
+}
 
 export default Header;

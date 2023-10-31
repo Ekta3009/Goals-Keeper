@@ -1,10 +1,11 @@
 //axios is the react library version of postman - used to send GET, POST etc req through frontend
-//donot confuse with node framework express that is used to handle above req at backend
+//do not confuse with node framework express that is used to handle above req at backend
 
 import axios from "axios";
 
 const API_URL = "/api/users/";
 
+//Register user
 const register = async (userData) => {
   const response = await axios.post(API_URL, userData);
 
@@ -15,10 +16,12 @@ const register = async (userData) => {
   return response.data;
 };
 
-const logout = async () => {
+//Logout user
+const logout = () => {
   localStorage.removeItem("user");
 };
 
+//Login user
 const login = async (userData) => {
   const response = await axios.post(API_URL + "login", userData);
 

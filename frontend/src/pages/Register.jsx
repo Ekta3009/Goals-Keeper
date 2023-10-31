@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
 
-const Register = () => {
+function Register() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -125,6 +125,6 @@ const Register = () => {
       </section>
     </>
   );
-};
+}
 
 export default Register;
