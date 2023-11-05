@@ -5,6 +5,7 @@ const colors = require("colors");
 const connectDB = require("./config/db");
 
 const port = process.env.PORT || 5000;
+const baseURL = process.env.BASE_URL;
 
 connectDB();
 
@@ -16,9 +17,9 @@ app.use(express.json());
 //the following line allows us to parse urlencoded data
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/goals", require("./routes/goalRoutes"));
+app.use(`${baseURL}/api/goals`, require("./routes/goalRoutes"));
 
-app.use("/api/users", require("./routes/userRoutes"));
+app.use(`${baseURL}/api/users`, require("./routes/userRoutes"));
 
 /** Note - this will not work if it is written before the require statement
  *
