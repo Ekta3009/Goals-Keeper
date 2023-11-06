@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const dotenv = require("dotenv").config();
 const { errorHandler } = require("./middlewares/errorMiddleware");
 const colors = require("colors");
@@ -6,6 +7,11 @@ const connectDB = require("./config/db");
 
 const port = process.env.PORT || 5000;
 const baseURL = process.env.BASE_URL;
+
+const corsOptions = {
+  origin: "https://goal-keeper-site.onrender.com",
+  optionsSuccessStatus: 200,
+};
 
 connectDB();
 
@@ -16,6 +22,8 @@ app.use(express.json());
 
 //the following line allows us to parse urlencoded data
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cors(corsOptions));
 
 app.use(`/api/goals`, require("./routes/goalRoutes"));
 
